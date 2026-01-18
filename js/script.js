@@ -1,4 +1,6 @@
+// --------
 // CAROUSEL
+// --------
 const track = document.querySelector('.carousel-track');
 const cards = Array.from(track.children);
 
@@ -7,49 +9,67 @@ let startX = 0;
 let currentX = 0;
 let isDragging = false;
 
-// Clone first and last for seamless loop
+const cardWidth = cards[0].getBoundingClientRect().width + 32; // width + gap
+
+// Clone first and last
 const firstClone = cards[0].cloneNode(true);
 const lastClone = cards[cards.length - 1].cloneNode(true);
 track.appendChild(firstClone);
 track.insertBefore(lastClone, cards[0]);
 
-function updateCarousel() {
-    const cardWidth = cards[0].getBoundingClientRect().width + 32; // width + gap
+let allCards = Array.from(track.children);
+
+function updateCarousel(animate = true) {
+    track.style.transition = animate ? "transform 0.5s ease" : "none";
     track.style.transform = `translateX(${-cardWidth * (index + 1)}px)`;
 
-    track.querySelectorAll('.carousel-card').forEach((card, i) => {
-        card.classList.toggle('active', i === index + 1);
+    allCards.forEach((card, i) => {
+        card.classList.toggle("active", i === index + 1);
     });
 }
 
-updateCarousel();
+// Initial position
+updateCarousel(false);
 
 // Touch events
-track.addEventListener('touchstart', e => {
+track.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
     isDragging = true;
 });
 
-track.addEventListener('touchmove', e => {
+track.addEventListener("touchmove", e => {
     if (!isDragging) return;
     currentX = e.touches[0].clientX;
 });
 
-track.addEventListener('touchend', () => {
+track.addEventListener("touchend", () => {
     if (!isDragging) return;
     const diff = currentX - startX;
     if (diff > 50) index--; // swipe right
     else if (diff < -50) index++; // swipe left
 
-    // Loop logic
-    if (index < 0) index = cards.length - 1;
-    if (index >= cards.length) index = 0;
+    updateCarousel(true);
 
-    updateCarousel();
+    // Loop fix: wait for transition, then snap invisibly
+    track.addEventListener("transitionend", () => {
+        if (index === -1) {
+            index = cards.length - 1; // jump to real last
+            updateCarousel(false);    // no animation
+        }
+        if (index === cards.length) {
+            index = 0; // jump to real first
+            updateCarousel(false);    // no animation
+        }
+    }, { once: true });
+
     isDragging = false;
 });
 
+
+
+// ------------
 // THEME BUTTON
+// ------------
 const toggleBtn = document.getElementById('theme-toggle');
 
 toggleBtn.addEventListener('click', () => {
