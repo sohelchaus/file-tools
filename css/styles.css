@@ -13,7 +13,7 @@
     --primary-color: #FFFFFF;
     --secondary-color: #202020;
     --tertiary-color: #FFCC2A;
-    --quaternary-color: #0A5A4C;
+    --quaternary-color: #2F5D62;
 }
 
 body {
@@ -187,11 +187,10 @@ p {
   justify-content: space-between;
   transition: opacity 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
+  border-radius: 0.5rem;
   padding: 1rem;
   backdrop-filter: blur(12px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  background: rgba(255, 255, 255, 0.25);
+  background-color: rgba(193, 198, 214, 0.35);
   -webkit-backdrop-filter: blur(12px);
 }
 
@@ -204,6 +203,7 @@ body.dark .carousel-card {
 .card-title {
     font-weight: 600;
     color: var(--secondary-color);
+    padding-bottom: 0.5rem;
 }
 
 .card-desc {
@@ -225,11 +225,15 @@ body.dark .card-desc {
 }
 
 .card-icon i {
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
     border-radius: 8px;
     padding: 0.6rem;
     font-size: 1.2rem;
+    color: var(--tertiary-color);
+    background-color: var(--primary-color);
+}
+
+body.dark .card-icon i {
+    background-color: var(--secondary-color);
 }
 
 .card-link a {
@@ -237,5 +241,5 @@ body.dark .card-desc {
     border-radius: 50%;
     padding: 0.5rem;
     text-decoration: none;
-    color: var(--tertiary-color);
+    color: var(--quaternary-color);
 }
