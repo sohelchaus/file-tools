@@ -84,3 +84,21 @@ toggleBtn.addEventListener('click', () => {
         toggleBtn.classList.add('fa-moon');
     }
 });
+
+// -----------------
+// NAVIGATION BUTTON
+// -----------------
+const tabs = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".content");
+
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        // reset all tabs
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        // reset all content
+        contents.forEach(c => c.classList.remove("active"));
+        document.getElementById(tab.dataset.target).classList.add("active");
+    });
+});
