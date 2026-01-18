@@ -1,0 +1,18 @@
+/* ------------ */
+/* DESKTOP VIEW */
+/* ------------ */
+@media (min-width: 768px) {
+    .carousel-card {
+        flex: 0 0 30%;        /* ~3 cards visible */
+    }
+}
+
+
+/* ----------- */
+/* TABLET VIEW */
+/* ----------- */
+@media (min-width: 1024px) {
+    .carousel-card {
+        flex: 0 0 18%;        /* ~5 cards visible */
+    }
+}

@@ -145,7 +145,7 @@ p {
     }
 }
 
-.word::before {
+.word-anime::before {
     content: "Upload";
     animation: cycleContent 6s infinite;
 }
@@ -170,30 +170,31 @@ p {
 
 .carousel {
     width: 100%;
-    max-width: 90%;
+    height: auto;
+    padding: 0 1rem;          /* tighter padding for mobile */
     overflow: hidden;
-    padding: 0 2rem;
     box-sizing: border-box;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease;
     gap: 1rem;
+    will-change: transform;   /* smoother GPU-accelerated transitions */
+    transition: transform 0.5s ease;
 }
 
 .carousel-card {
-    flex: 0 0 60%;
+    flex: 0 0 80%;            /* show ~1.2 cards at a time on mobile */
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: opacity 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.5rem;
     padding: 1rem;
     backdrop-filter: blur(12px);
+    transition: opacity 0.4s ease;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     background-color: rgba(193, 198, 214, 0.35);
-    -webkit-backdrop-filter: blur(12px);
 }
 
 body.dark .carousel-card {
@@ -203,14 +204,14 @@ body.dark .carousel-card {
 
 /* Info section */
 .card-title {
-    font-weight: 600;
-    color: var(--secondary-color);
+    font-weight: bold;
     padding-bottom: 0.5rem;
+    color: var(--secondary-color);
 }
 
 .card-desc {
-    color: var(--secondary-color);
     line-height: 1.4;
+    color: var(--secondary-color);
 }
 
 body.dark .card-title,
@@ -220,16 +221,16 @@ body.dark .card-desc {
 
 /* Footer row */
 .card-footer {
-    margin-top: 1rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .card-icon i {
-    border-radius: 8px;
     padding: 0.6rem;
     font-size: 1.2rem;
+    border-radius: 0.5rem;
     color: var(--tertiary-color);
     background-color: var(--primary-color);
 }
@@ -240,8 +241,8 @@ body.dark .card-icon i {
 
 .card-link a {
     display: inline-block;
-    border-radius: 50%;
     padding: 0.5rem;
+    border-radius: 50%;
     text-decoration: none;
     color: var(--quaternary-color);
 }
@@ -249,15 +250,16 @@ body.dark .card-icon i {
 /* TOOL SECTION */
 .tab-bar {
     display: flex;
-    gap: 0.5rem;
+    justify-content: space-between;
     list-style: none;
-    margin: 0;
-    padding: 0.5rem;
-    background-color: rgba(193, 198, 214, 0.35);;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
     overflow-x: auto;
     scrollbar-width: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(193, 198, 214, 0.35);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 body.dark .tab-bar {
@@ -284,8 +286,8 @@ body.dark .tab-bar {
 }
 
 .tab.active {
-    background-color: var(--tertiary-color);
     color: var(--primary-color);
+    background-color: var(--tertiary-color);
 }
 
 .tab-content {
@@ -295,8 +297,8 @@ body.dark .tab-bar {
 .content {
     display: none;
     padding: 1rem;
-    background-color: rgba(193, 198, 214, 0.35);;
     border-radius: 0.5rem;
+    background-color: rgba(193, 198, 214, 0.35);
 }
 
 body.dark .content {
