@@ -126,7 +126,40 @@
     </header>
     <!-- END -->
 
-    <script src="js/script.js"></script>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+
+    // Switch icon
+    if (document.body.classList.contains('dark')) {
+        toggleBtn.classList.remove('fa-moon');
+        toggleBtn.classList.add('fa-sun');
+    } else {
+        toggleBtn.classList.remove('fa-sun');
+        toggleBtn.classList.add('fa-moon');
+    }
+});
+
+// -----------------
+// NAVIGATION BUTTON
+// -----------------
+const tabs = document.querySelectorAll(".tab");
+const contents = document.querySelectorAll(".content");
+
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        // reset all tabs
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        // reset all content
+        contents.forEach(c => c.classList.remove("active"));
+        document.getElementById(tab.dataset.target).classList.add("active");
+    });
+});
+    </script>
 </body>
 
 </html>
