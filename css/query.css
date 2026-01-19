@@ -18,6 +18,18 @@
         padding-top: 1rem;
     }
 
+    .tab {
+        flex: 0 0 auto;
+        width: 33%;
+    }
+
+    .tool-box {
+        width: calc(25% - 1rem);
+        height: auto;
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
 }
 
 

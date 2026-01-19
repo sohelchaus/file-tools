@@ -13,7 +13,7 @@
     --primary-color: #FFFFFF;
     --secondary-color: #202020;
     --tertiary-color: #FFCC2A;
-    --quaternary-color: #2F5D62;
+    --quaternary-color: #5A5050;
 }
 
 body {
@@ -94,6 +94,7 @@ p {
 
 .branding p {
     font-size: clamp(1.2rem, 1vw + 0.5rem, 1.8rem);
+    color: var(--quaternary-color);
 }
 
 .sername {
@@ -123,6 +124,7 @@ p {
     animation: cycleWords 6s infinite;
     display: inline-block;
     text-align: center;
+    border-radius: 0.4rem;
     color: var(--primary-color);
     background-color: var(--quaternary-color);
 }
@@ -172,7 +174,6 @@ p {
     width: 100%;
     height: auto;
     padding: 0 1rem;
-    /* tighter padding for mobile */
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -181,13 +182,11 @@ p {
     display: flex;
     gap: 1rem;
     will-change: transform;
-    /* smoother GPU-accelerated transitions */
     transition: transform 0.5s ease;
 }
 
 .carousel-card {
     flex: 0 0 80%;
-    /* show ~1.2 cards at a time on mobile */
     height: auto;
     display: flex;
     flex-direction: column;
@@ -197,7 +196,7 @@ p {
     transition: opacity 0.4s ease;
     border-radius: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(193, 198, 214, 0.35);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 body.dark .carousel-card {
@@ -207,9 +206,9 @@ body.dark .carousel-card {
 
 /* Info section */
 .card-title {
-    font-weight: bold;
     padding-bottom: 0.5rem;
     color: var(--secondary-color);
+    font-weight: bold;
 }
 
 .card-desc {
@@ -234,7 +233,6 @@ body.dark .card-desc {
     padding: 0.6rem;
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    color: var(--tertiary-color);
     background-color: var(--primary-color);
 }
 
@@ -261,7 +259,7 @@ body.dark .card-icon i {
     margin: 0;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background-color: rgba(193, 198, 214, 0.35);
+    background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
@@ -277,9 +275,9 @@ body.dark .tab-bar {
     flex: 0 0 auto;
     min-width: 6rem;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.8rem;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     font-weight: 500;
     transition: background 0.3s;
 }
@@ -290,7 +288,7 @@ body.dark .tab-bar {
 
 .tab.active {
     color: var(--primary-color);
-    background-color: var(--tertiary-color);
+    background-color: var(--quaternary-color);
 }
 
 .tab-content {
@@ -327,7 +325,7 @@ body.dark .tab-bar {
     justify-content: space-between;
     align-items: center;
     border-radius: 0.5rem;
-    background-color: rgba(193, 198, 214, 0.35);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 body.dark .tool-box {
@@ -340,10 +338,7 @@ body.dark .tool-box {
     display: flex;
     text-align: center;
     padding-bottom: 1rem;
-}
-
-.tool-top h2 {
-    font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+    font-weight: bold;
 }
 
 .tool-bottom {
@@ -353,10 +348,6 @@ body.dark .tool-box {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.tool-bottom i {
-    font-size: 1.2rem;
 }
 
 /* FOOTER SECTION */
