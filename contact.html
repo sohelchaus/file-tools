@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Sohel Chaus</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="icon" href="assets/logo.png" type="webp">
+    <script src="https://kit.fontawesome.com/ec2b7aebf5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="contact-form">
+
+        <!--LEFT SIDE | FORM-->
+        <div class="left-panel">
+            <h2 class="ct-title">Follow Us</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sohel-chaus-4a194a360" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/mr.sohelchaus" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/mr.sohelchaus" target="_blank">
+                    <i class="fa-brands fa-square-facebook"></i>
+                </a>
+            </div>
+        </div>
+
+        <!--RIGHT SIDE | FORM-->
+        <div class="right-panel">
+            <h2 class="ct-title">Get In Touch</h2>
+            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form id="contactForm">
+
+                <!-- NAME -->
+                <div class="input-field">
+                    <div class="field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="input-field">
+                    <div class="field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                </div>
+
+                <!-- PHONE -->
+                <div class="input-field">
+                    <div class="field">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone (Optional)" required>
+                    </div>
+                </div>
+
+                <!-- SUBJECT -->
+                <div class="input-field">
+                    <div class="field">
+                        <i class="fa-solid fa-tag"></i>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Subject</option>
+                            <option value="feedback">General Feedback</option>
+                            <option value="hiring">Hiring Inquiry</option>
+                            <option value="services">Service Request</option>
+                            <option value="collaboration">Collaboration Proposal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- TEXTAREA -->
+                <div class="message-area">
+                    <div class="area">
+                        <i class="fa-solid fa-message"></i>
+                        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="submit">Send Message</button>
+
+                <!-- LOADER -->
+                <div class="form-loader" id="formLoader">
+                    <div class="dot-spinner">
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                    </div>
+                    <h2 id="loaderMessage">Sending Message</h2>
+                </div>
+            </form>
+
+            <!-- RESPONSE -->
+            <div class="popup-message success" id="successMessage">
+                <i class="icon-check"></i>
+                <span>Message sent successfully!</span>
+            </div>
+
+            <div class="popup-message error" id="errorMessage">
+                <i class="icon-error"></i>
+                <span>Something went wrong. Please try again.</span>
+            </div>
+        </div>
+    </div>
+    <script src="js/contact.js"></script>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("kRhKkG4Y73pMzsxu8");
+        })();
+    </script>
+
+</body>
+
+</html>
