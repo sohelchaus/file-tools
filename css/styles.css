@@ -171,7 +171,8 @@ p {
 .carousel {
     width: 100%;
     height: auto;
-    padding: 0 1rem;          /* tighter padding for mobile */
+    padding: 0 1rem;
+    /* tighter padding for mobile */
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -179,12 +180,14 @@ p {
 .carousel-track {
     display: flex;
     gap: 1rem;
-    will-change: transform;   /* smoother GPU-accelerated transitions */
+    will-change: transform;
+    /* smoother GPU-accelerated transitions */
     transition: transform 0.5s ease;
 }
 
 .carousel-card {
-    flex: 0 0 80%;            /* show ~1.2 cards at a time on mobile */
+    flex: 0 0 80%;
+    /* show ~1.2 cards at a time on mobile */
     height: auto;
     display: flex;
     flex-direction: column;
@@ -354,4 +357,94 @@ body.dark .tool-box {
 
 .tool-bottom i {
     font-size: 1.2rem;
+}
+
+/* FOOTER SECTION */
+.footer-section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+body.dark .footer-section {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.footer-top {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark .footer-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-branding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-branding img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}
+
+.footer-quick ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-quick li,
+.footer-social li {
+    margin: 0.5rem 0;
+}
+
+.footer-quick li a,
+.footer-social li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: var(--secondary-color);
+}
+
+body.dark .footer-quick li a,
+body.dark .footer-social li a {
+    color: var(--primary-color);
+}
+
+.footer-quick a:hover,
+.footer-social a:hover {
+    color: var(--secondary-color);
+}
+
+body.dark .footer-quick a:hover,
+body.dark .footer-social a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--secondary-color);
+}
+
+body.dark .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
 }
