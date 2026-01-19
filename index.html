@@ -19,23 +19,14 @@
 </head>
 
 <body>
-    <section class="header">
-        <div class="branding">
-            <img class="logo" src="assets/logo.png" alt="Logo">
-            <p>Sohel<span class="sername">Chaus</span></p>
-        </div>
+    <!-- PLACEHOLDER -->
+    <div id="header"></div>
 
-        <div class="header-right">
-            <i id="theme-toggle" class="fa-solid fa-moon theme-btn"></i>
-            <i class="fa-solid fa-bars menu-btn"></i>
-        </div>
-    </section>
-    <!-- END -->
-
-    <section class="main">
+    <main>
 
         <!-- Animated Tagline -->
         <span class="word-animation">
+
             <span class="word-anime"></span>
             <span>&nbsp;All For Free</span>
         </span>
@@ -159,49 +150,38 @@
 
 
 
-    </section>
-    <!-- END -->
+    </main>
 
-    <footer class="footer-section">
-
-        <div class="footer-top">
-
-            <!-- Branding -->
-            <div class="footer-branding">
-                <img src="assets/logo.png" alt="Logo">
-            </div>
-
-            <!-- Portfolio Links -->
-            <div class="footer-quick">
-                <h2>About Us</h2>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="https://sohelchaus.github.io/portfolio/index.html">Portfolio</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Links -->
-            <div class="footer-social">
-                <h2>Follow Us</h2>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/sohel-chaus-4a194a360" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn</a></li>
-                    <li><a href="https://www.instagram.com/mr.sohelchaus" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="https://www.facebook.com/mr.sohelchaus" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 Sohel Chaus | All rights reserved.</p>
-        </div>
-
-    </footer>
+    <!-- PLACEHOLDER -->
+    <div id="footer"></div>
 
     <script src="js/script.js"></script>
+    
+    <!-- PLACEHOLDER INJECTION -->
+    <script>
+        const resolvePath = (file) => {
+            const isInPdf = location.pathname.includes('/pdf/');
+            return isInPdf ? `../${file}` : `./${file}`;
+        };
+
+        const inject = async (id, file) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            try {
+                const res = await fetch(resolvePath(file));
+                const html = await res.text();
+                el.innerHTML = html;
+            } catch (err) {
+                console.error(`Error loading ${file}`, err);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            inject('header', 'header.html');
+            inject('footer', 'footer.html');
+        });
+    </script>
+
 </body>
 
 </html>
