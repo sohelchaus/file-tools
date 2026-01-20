@@ -1,6 +1,28 @@
-// --------
+// ------
+// HEADER
+// ------
+
+// THEME BUTTON
+const toggleBtn = document.getElementById('theme-toggle');
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+
+    // Switch icon
+    if (document.body.classList.contains('dark')) {
+        toggleBtn.classList.remove('fa-moon');
+        toggleBtn.classList.add('fa-sun');
+    } else {
+        toggleBtn.classList.remove('fa-sun');
+        toggleBtn.classList.add('fa-moon');
+    }
+});
+
+// ----
+// MAIN
+// ----
+
 // CAROUSEL
-// --------
 const track = document.querySelector('.carousel-track');
 const cards = Array.from(track.children);
 
@@ -9,9 +31,8 @@ let startX = 0;
 let currentX = 0;
 let isDragging = false;
 
-const cardWidth = cards[0].getBoundingClientRect().width + 32; // width + gap
+const cardWidth = cards[0].getBoundingClientRect().width + 32; 
 
-// Duplicate all cards once to create seamless loop
 track.innerHTML += track.innerHTML;
 const allCards = Array.from(track.children);
 
@@ -20,10 +41,8 @@ function updateCarousel(animate = true) {
     track.style.transform = `translateX(${-cardWidth * index}px)`;
 }
 
-// Initial position
 updateCarousel(false);
 
-// Touch events
 track.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
     currentX = startX;
@@ -42,13 +61,12 @@ track.addEventListener("touchend", () => {
     if (!isDragging) return;
     const diff = currentX - startX;
 
-    if (diff > 50) index--; // swipe right
-    else if (diff < -50) index++; // swipe left
+    if (diff > 50) index--; 
+    else if (diff < -50) index++; 
 
     updateCarousel(true);
 
     track.addEventListener("transitionend", () => {
-        // Seamless reset when passing halfway
         if (index < 0) {
             index = cards.length - 1;
             updateCarousel(false);
@@ -62,28 +80,7 @@ track.addEventListener("touchend", () => {
     isDragging = false;
 });
 
-
-// ------------
-// THEME BUTTON
-// ------------
-const toggleBtn = document.getElementById('theme-toggle');
-
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-
-    // Switch icon
-    if (document.body.classList.contains('dark')) {
-        toggleBtn.classList.remove('fa-moon');
-        toggleBtn.classList.add('fa-sun');
-    } else {
-        toggleBtn.classList.remove('fa-sun');
-        toggleBtn.classList.add('fa-moon');
-    }
-});
-
-// -----------------
 // NAVIGATION BUTTON
-// -----------------
 const tabs = document.querySelectorAll(".tab");
 const contents = document.querySelectorAll(".content");
 
@@ -98,3 +95,4 @@ tabs.forEach(tab => {
         document.getElementById(tab.dataset.target).classList.add("active");
     });
 });
+
