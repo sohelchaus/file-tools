@@ -7,12 +7,12 @@
 
 :root {
     font-size: 16px;
-    font-family: "DM Mono", monospace;
     font-style: normal;
-    --primary-color: #FFFFFF;
-    --secondary-color: #202020;
-    --tertiary-color: #FFCC2A;
-    --quaternary-color: #5A5050;
+    font-family: "DM Mono", monospace;
+    --bg: #FFFFFF;
+    --fg: #202020;
+    --accent: #FFCC2A;
+    --border: #5A5050;
 }
 
 body {
@@ -23,29 +23,29 @@ body {
     width: 100vw;
     margin: 0 auto;
     padding: 0.5rem 1rem;
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
+    color: var(--fg);
+    background-color: var(--bg);
 }
 
 body.dark {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
+    color: var(--bg);
+    background-color: var(--fg);
 }
 
 /* FONT ELEMENT */
 h2 {
     font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
     font-weight: bold;
-    color: var(--quaternary-color);
+    color: var(--border);
 }
 
 p {
     font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
-    color: var(--secondary-color);
+    color: var(--fg);
 }
 
 body.dark p {
-    color: var(--primary-color);
+    color: var(--bg);
 }
 
 /* ------ */
@@ -74,15 +74,15 @@ header {
 
 .header-left p {
     font-weight: bold;
-    color: var(--quaternary-color);
+    color: var(--border);
 }
 
 body.dark .header-left p {
-    color: var(--primary-color);
+    color: var(--bg);
 }
 
 .sername {
-    color: var(--tertiary-color);
+    color: var(--accent);
 }
 
 
@@ -100,11 +100,11 @@ body.dark .header-left p {
     padding: 0.4rem;
     margin-right: 0.5rem;
     transition: color 0.3s ease, background 0.3s ease;
-    color: var(--secondary-color);
+    color: var(--fg);
 }
 
 body.dark .theme-btn {
-    color: var(--tertiary-color);
+    color: var(--accent);
 }
 
 /* Menu button */
@@ -121,7 +121,7 @@ body.dark .theme-btn {
     top: 3rem;
     left: 0;
     padding: 1rem 0;
-    background-color: var(--quaternary-color);
+    background-color: var(--border);
     z-index: 1000;
 }
 
@@ -142,11 +142,11 @@ body.dark .theme-btn {
 
 .menu-option li a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--bg);
 }
 
 .menu-option li a:hover {
-    color: var(--tertiary-color);
+    color: var(--accent);
 }
 
 /* ---- */
@@ -172,8 +172,8 @@ main p {
     display: inline-block;
     text-align: center;
     border-radius: 0.4rem;
-    color: var(--primary-color);
-    background-color: var(--quaternary-color);
+    color: var(--bg);
+    background-color: var(--border);
 }
 
 @keyframes cycleWords {
@@ -254,18 +254,18 @@ body.dark .carousel-card {
 /* Info section */
 .card-title {
     padding-bottom: 0.5rem;
-    color: var(--secondary-color);
+    color: var(--fg);
     font-weight: bold;
 }
 
 .card-desc {
     line-height: 1.4;
-    color: var(--secondary-color);
+    color: var(--fg);
 }
 
 body.dark .card-title,
 body.dark .card-desc {
-    color: var(--primary-color);
+    color: var(--bg);
 }
 
 /* Footer row */
@@ -280,11 +280,11 @@ body.dark .card-desc {
     padding: 0.6rem;
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    background-color: var(--primary-color);
+    background-color: var(--bg);
 }
 
 body.dark .card-icon i {
-    background-color: var(--secondary-color);
+    background-color: var(--fg);
 }
 
 .card-link a {
@@ -292,7 +292,7 @@ body.dark .card-icon i {
     padding: 0.5rem;
     border-radius: 50%;
     text-decoration: none;
-    color: var(--quaternary-color);
+    color: var(--border);
 }
 
 /* TOOL SECTION */
@@ -330,13 +330,13 @@ body.dark .tab-bar {
 }
 
 .tab:hover {
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
+    color: var(--fg);
+    background-color: var(--bg);
 }
 
 .tab.active {
-    color: var(--primary-color);
-    background-color: var(--quaternary-color);
+    color: var(--bg);
+    background-color: var(--border);
 }
 
 .tab-content {
@@ -407,13 +407,13 @@ footer {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
+    color: var(--fg);
+    background-color: var(--bg);
 }
 
 body.dark footer {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
+    color: var(--bg);
+    background-color: var(--fg);
 }
 
 .footer-top {
@@ -459,22 +459,22 @@ body.dark .footer-top {
 .footer-social li a {
     text-decoration: none;
     transition: color 0.3s ease;
-    color: var(--secondary-color);
+    color: var(--fg);
 }
 
 body.dark .footer-quick li a,
 body.dark .footer-social li a {
-    color: var(--primary-color);
+    color: var(--bg);
 }
 
 .footer-quick a:hover,
 .footer-social a:hover {
-    color: var(--secondary-color);
+    color: var(--fg);
 }
 
 body.dark .footer-quick a:hover,
 body.dark .footer-social a:hover {
-    color: var(--primary-color);
+    color: var(--bg);
 }
 
 .footer-bottom {
@@ -482,10 +482,10 @@ body.dark .footer-social a:hover {
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--secondary-color);
+    color: var(--fg);
 }
 
 body.dark .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--primary-color);
+    color: var(--bg);
 }
