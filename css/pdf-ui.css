@@ -1,30 +1,8 @@
-:root {
-    font-size: 16px;
-    font-style: normal;
-    font-family: "DM Mono", monospace;
-    --bg: #FFFFFF;
-    --fg: #202020;
-    --accent: #FFCC2A;
-    --border: #5A5050;
-    --radius: 0.5;
-}
-
-body {
-    margin: 0;
-    padding: 2rem;
-    color: var(--accent);
-    background: var(--bg);
-}
-
-.container {
-    max-width: 70rem;
-    margin: 0 auto;
-    display: grid;
-    gap: 2rem;
-}
-
+/* ---- */
+/* MAIN */
+/* ---- */
 .card {
-    background: var(--fg);
+    background: var(--bg);
     border-radius: var(--radius);
     border: 0.1rem solid var(--border);
 }

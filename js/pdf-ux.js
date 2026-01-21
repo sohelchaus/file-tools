@@ -1,4 +1,7 @@
-// Elements
+// ----
+// MAIN
+// ----
+
 const dropzone = document.getElementById('dropzone');
 const fileInput = document.getElementById('fileInput');
 const chooseBtn = document.getElementById('chooseBtn');
