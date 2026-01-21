@@ -18,6 +18,16 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 
+// MENU OPTION
+const menuBtn = document.querySelector('.menu-btn');
+const menuOption = document.querySelector('.menu-option');
+
+menuBtn.addEventListener('click', () => {
+  menuOption.classList.toggle('open');
+  menuBtn.classList.toggle('active');
+});
+
+
 // ----
 // MAIN
 // ----
@@ -31,7 +41,7 @@ let startX = 0;
 let currentX = 0;
 let isDragging = false;
 
-const cardWidth = cards[0].getBoundingClientRect().width + 32; 
+const cardWidth = cards[0].getBoundingClientRect().width + 32;
 
 track.innerHTML += track.innerHTML;
 const allCards = Array.from(track.children);
@@ -61,8 +71,8 @@ track.addEventListener("touchend", () => {
     if (!isDragging) return;
     const diff = currentX - startX;
 
-    if (diff > 50) index--; 
-    else if (diff < -50) index++; 
+    if (diff > 50) index--;
+    else if (diff < -50) index++;
 
     updateCarousel(true);
 

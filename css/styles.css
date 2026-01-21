@@ -34,11 +34,18 @@ body.dark {
 
 /* FONT ELEMENT */
 h2 {
-    font-size: clamp(1.3rem, 1vw + 0.5rem, 2rem);
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    font-weight: bold;
+    color: var(--quaternary-color);
 }
 
 p {
-    font-size: clamp(0.8rem, 1vw + 0.5rem, 1.6rem);
+    font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+    color: var(--secondary-color);
+}
+
+body.dark p {
+    color: var(--primary-color);
 }
 
 /* ------ */
@@ -47,34 +54,30 @@ p {
 header {
     width: 100%;
     height: auto;
-    padding-bottom: 1rem;
+    padding: 0.5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
 }
 
 /* LEFT SIDE */
-.branding {
-    width: calc(100% - 1rem);
+.header-left {
+    width: 100%;
     height: auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.branding img {
+.header-left img {
     width: 1.2rem;
     height: 1.2rem;
-    margin-right: 0.5rem;
 }
 
-.branding p {
-    font-size: clamp(1.2rem, 1vw + 0.5rem, 1.8rem);
+.header-left p {
+    font-weight: bold;
     color: var(--quaternary-color);
 }
 
-body.dark .branding p {
+body.dark .header-left p {
     color: var(--primary-color);
 }
 
@@ -82,16 +85,13 @@ body.dark .branding p {
     color: var(--tertiary-color);
 }
 
-/* RIGHT SIDE */
-.header-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 
-.theme-btn,
-.menu-btn {
-    font-size: 1.5rem;
+.header-right {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .theme-btn {
@@ -107,6 +107,47 @@ body.dark .theme-btn {
     color: var(--tertiary-color);
 }
 
+/* Menu button */
+.menu-btn {
+    cursor: pointer;
+}
+
+/* Menu Option */
+.menu-option {
+    width: 100%;
+    height: auto;
+    display: none;
+    position: relative;
+    top: 3rem;
+    left: 0;
+    padding: 1rem 0;
+    background-color: var(--quaternary-color);
+    z-index: 1000;
+}
+
+.menu-option.open {
+    display: block;
+}
+
+.menu-option ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.menu-option li {
+    margin: 1rem 0;
+}
+
+.menu-option li a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.menu-option li a:hover {
+    color: var(--tertiary-color);
+}
 
 /* ---- */
 /* MAIN */
@@ -123,7 +164,6 @@ main p {
     display: flex;
     justify-content: flex-start;
     padding-bottom: 0.5rem;
-    font-size: clamp(1.3rem, 1vw + 0.5rem, 2rem);
 }
 
 .word-anime {
