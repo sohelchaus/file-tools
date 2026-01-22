@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/query.css" class="rel">
     <title>Footer Section</title>
     <style>
         * {
@@ -144,6 +143,19 @@
         body.dark .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--bg);
+        }
+
+        @media (min-width: 768px) {
+
+            .footer-top {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
         }
     </style>
 </head>
