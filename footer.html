@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            font-size: 16px;
+            font-style: normal;
+            font-family: "DM Mono", monospace;
+            --bg: #FFFFFF;
+            --fg: #202020;
+            --accent: #FFCC2A;
+            --border: #5A5050;
+        }
+
+        body {
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100Vh;
+            width: 100vw;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+            color: var(--fg);
+            background-color: var(--bg);
+        }
+
+        body.dark {
+            color: var(--bg);
+            background-color: var(--fg);
+        }
+
+        /* FONT ELEMENT */
+        h2 {
+            font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+            font-weight: bold;
+            color: var(--border);
+        }
+
+        p {
+            font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+            color: var(--fg);
+        }
+
+        body.dark p {
+            color: var(--bg);
+        }
+
+        footer {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            color: var(--fg);
+            background-color: var(--bg);
+        }
+
+        body.dark footer {
+            color: var(--bg);
+            background-color: var(--fg);
+        }
+
+        .footer-top {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2rem;
+            gap: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .footer-top {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-branding {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-branding img {
+            width: 2rem;
+            height: 2rem;
+            object-fit: contain;
+        }
+
+        .footer-quick ul,
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-quick li,
+        .footer-social li {
+            margin: 0.5rem 0;
+        }
+
+        .footer-quick li a,
+        .footer-social li a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+            color: var(--fg);
+        }
+
+        body.dark .footer-quick li a,
+        body.dark .footer-social li a {
+            color: var(--bg);
+        }
+
+        .footer-quick a:hover,
+        .footer-social a:hover {
+            color: var(--fg);
+        }
+
+        body.dark .footer-quick a:hover,
+        body.dark .footer-social a:hover {
+            color: var(--bg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--fg);
+        }
+
+        body.dark .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--bg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer>
+        <div class="footer-top">
+
+            <!-- Branding -->
+            <div class="footer-branding">
+                <img src="assets/logo.png" alt="Logo">
+            </div>
+
+            <!-- Portfolio Links -->
+            <div class="footer-quick">
+                <h2>About Us</h2>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="https://sohelchaus.github.io/portfolio/index.html">Portfolio</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Links -->
+            <div class="footer-social">
+                <h2>Follow Us</h2>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/sohel-chaus-4a194a360" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/mr.sohelchaus" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/mr.sohelchaus" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sohel Chaus | All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

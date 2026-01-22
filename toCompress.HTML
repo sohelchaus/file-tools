@@ -13,89 +13,78 @@
         rel="stylesheet">
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/ec2b7aebf5.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
+    <header id="header-section"></header>
 
     <main>
         <!-- INPUT SECTION -->
         <section class="card">
             <div class="card-header">
-                <h2>Input</h2>
-                <p>Upload or drag a PDF, then add quick annotations.</p>
+                <h2>Compress PDF File</h2>
+                <p>Lesson the file size of a pdf file.</p>
             </div>
-            <div class="card-body">
-                <div class="upload-area">
-                    <div id="dropzone" class="dropzone">
-                        <div class="icon">↑</div>
-                        <h3>Drag & Drop PDF</h3>
-                        <p>Or click “Choose PDF”</p>
-                        <input id="fileInput" type="file" accept="application/pdf" hidden />
-                    </div>
-                    <div class="controls">
-                        <button id="chooseBtn" class="btn primary">📄 Choose PDF</button>
-                        <button id="addNoteBtn" class="btn">📝 Add note</button>
-                    </div>
-                </div>
-                <div class="viewer-wrap">
-                    <div class="viewer-toolbar">
-                        <button id="zoomIn" class="btn">➕ Zoom in</button>
-                        <button id="zoomOut" class="btn">➖ Zoom out</button>
-                        <button id="clearNotes" class="btn">🧹 Clear notes</button>
-                    </div>
-                    <div id="viewer" class="viewer">
-                        <embed id="pdfEmbed" type="application/pdf" src="" />
-                        <div id="annotationLayer" class="annotation-layer"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- FEEDBACK SECTION -->
-        <section class="card">
-            <div class="card-header">
-                <h2>Feedback</h2>
-                <p>Rate your experience and share suggestions.</p>
-            </div>
             <div class="card-body">
-                <div class="stars">
-                    <div class="star" data-value="1">★</div>
-                    <div class="star" data-value="2">★</div>
-                    <div class="star" data-value="3">★</div>
-                    <div class="star" data-value="4">★</div>
-                    <div class="star" data-value="5">★</div>
+                <div class="dropzone" id="dropzone">
+                    <i class="fa-regular fa-file"></i>
+                    <!-- UPLOAD BUTTON -->
+                    <div class="controls">
+                        <button class="btn primary " id="chooseBtn">Upload</button>
+                    </div>
+                    <p>Drag Here</p>
+                    <!-- DRAG BUTTON -->
+                    <input id="fileInput" type="file" accept="application/pdf" hidden />
                 </div>
-                <textarea id="feedbackText" class="input" rows="3" placeholder="Your feedback..."></textarea>
-                <button id="submitFeedback" class="btn primary">✅ Submit</button>
-                <p id="feedbackStatus" class="hint"></p>
             </div>
         </section>
 
         <!-- GUIDE SECTION -->
         <section class="card">
+
             <div class="card-header">
-                <h2>Guide</h2>
-                <p>Follow these steps to edit and export your PDF.</p>
+                <h2>How To Compress A PDF File</h2>
+                <p>Follow along the steps below.</p>
             </div>
+
             <div class="card-body steps">
+
                 <div class="step">
                     <div class="badge">1</div>
-                    <h4>Upload your PDF</h4>
-                    <p>Drag or choose a file.</p>
+                    <h2>Select</h2>
+                    <p>File that needs a smaller size.</p>
                 </div>
+
                 <div class="step">
                     <div class="badge">2</div>
-                    <h4>Add annotations</h4>
-                    <p>Click “Add note” and drag it.</p>
+                    <h2>Upload</h2>
+                    <p>Drag or choose a file.</p>
                 </div>
+                
                 <div class="step">
                     <div class="badge">3</div>
-                    <h4>Review & share</h4>
-                    <p>Use zoom controls and export.</p>
+                    <h2>Download</h2>
+                    <p>Download the compressed PDF.</p>
                 </div>
+
             </div>
+
         </section>
     </main>
+
+    <footer id="footer-section"></footer>
+
+    <script>
+        $(function () {
+            $("#header-section").load("header.html");
+            $("#footer-section").load("footer.html");
+        });
+    </script>
 
     <script src="js/pdf-ux.js"></script>
 </body>

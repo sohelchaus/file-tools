@@ -14,35 +14,16 @@
         rel="stylesheet">
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/ec2b7aebf5.js" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <header>
-        <div class="header-left">
-            <img class="logo" src="assets/logo.png" alt="Logo">
-            <p>Sohel<span class="sername">Chaus</span></p>
-        </div>
-
-        <div class="header-right">
-            <i id="theme-toggle" class="fa-solid fa-moon theme-btn"></i>
-
-            <!-- Menu Button -->
-            <i class="fa-solid fa-bars menu-btn"></i>
-
-            <!-- Menu Option -->
-            <div class="menu-option">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#service">Service</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
+    <header id="header-section"></header>
+    
     <main>
-
         <!-- Animated Tagline -->
         <h2 class="word-animation">
 
@@ -169,44 +150,15 @@
 
     </main>
 
-    <footer>
-        <div class="footer-top">
-
-            <!-- Branding -->
-            <div class="footer-branding">
-                <img src="assets/logo.png" alt="Logo">
-            </div>
-
-            <!-- Portfolio Links -->
-            <div class="footer-quick">
-                <h2>About Us</h2>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="https://sohelchaus.github.io/portfolio/index.html">Portfolio</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Links -->
-            <div class="footer-social">
-                <h2>Follow Us</h2>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/sohel-chaus-4a194a360" aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn</a></li>
-                    <li><a href="https://www.instagram.com/mr.sohelchaus" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="https://www.facebook.com/mr.sohelchaus" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 Sohel Chaus | All rights reserved.</p>
-        </div>
-    </footer>
+    <footer id="footer-section"></footer>
 
     <script src="js/script.js"></script>
+    <script>
+        $(function () {
+            $("#header-section").load("header.html");
+            $("#footer-section").load("footer.html");
+        });
+    </script>
 
 </body>
 

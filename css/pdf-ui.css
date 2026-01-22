@@ -1,82 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    font-size: 16px;
+    font-style: normal;
+    font-family: "DM Mono", monospace;
+    --bg: #FFFFFF;
+    --fg: #202020;
+    --accent: #FFCC2A;
+    --border: #5A5050;
+    --radius: 0.5rem;
+}
+
+body {
+    overflow-x: hidden;
+    display: flex;
+    height: 100Vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+body.dark {
+    color: var(--bg);
+    background-color: var(--fg);
+}
+
+/* FONT ELEMENT */
+h2 {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    font-weight: bold;
+    color: var(--border);
+}
+
+p {
+    font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+    color: var(--fg);
+}
+
+body.dark p {
+    color: var(--bg);
+}
+
 /* ---- */
 /* MAIN */
 /* ---- */
+
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .card {
-    background: var(--bg);
-    border-radius: var(--radius);
-    border: 0.1rem solid var(--border);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.card-header {
-    padding: 1rem;
-    border-bottom: 0.1rem solid var(--border);
-}
-
+.card-header,
 .card-body {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     padding: 1rem;
 }
 
-.upload-area {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
+/* ------------- */
+/* INPUT SECTION */
+/* ------------- */
 .dropzone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 0.2rem dashed var(--border);
     border-radius: var(--radius);
     padding: 2rem;
-    accent-align: center;
+    text-align: center;
+}
+
+.dropzone i {
+    margin: 1rem 0;
+    font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+    color: var(--border);
+}
+
+body.dark .dropzone i {
+    color: var(--accent);
 }
 
 .controls {
-    display: grid;
+    display: flex;
     gap: 1rem;
 }
 
 .btn {
     padding: 0.8rem 1.2rem;
-    border-radius: 0.6rem;
-    border: 0.1rem solid var(--border);
-    background: #1e293b;
+    margin-bottom: 1rem;
+    background-color: var(--border);
     color: var(--accent);
     cursor: pointer;
 }
 
 .btn.primary {
     background: var(--accent);
-    color: #fff;
-}
-
-.viewer-wrap {
-    margin-top: 1.5rem;
-    border: 0.1rem solid var(--border);
+    color: var(--border);
     border-radius: var(--radius);
 }
 
-.viewer-toolbar {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.viewer {
-    height: 30rem;
-    overflow: auto;
-}
-
-.annotation-layer {
-    position: absolute;
-    inset: 0;
-}
-
-.note {
-    position: absolute;
-    padding: 1rem;
-    border-radius: 0.6rem;
-    background: rgba(34, 197, 94, 0.2);
-    border: 0.1rem solid var(--accent);
-}
+/* ---------------- */
+/* FEEDBACK SECTION */
+/* ---------------- */
 
 .stars {
     display: flex;
@@ -85,19 +132,22 @@
 }
 
 .star {
-    font-size: 1.5rem;
     cursor: pointer;
 }
 
+/* ------------- */
+/* GUIDE SECTION */
+/* ------------- */
 .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 1rem;
 }
 
 .step {
-    border: 0.1rem solid var(--border);
-    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
 }
 
@@ -105,9 +155,10 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 0.6rem;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--accent);
-    color: #fff;
+    color: var(--border);
     margin-bottom: 0.5rem;
 }

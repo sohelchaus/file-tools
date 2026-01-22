@@ -1,33 +1,3 @@
-// ------
-// HEADER
-// ------
-
-// THEME BUTTON
-const toggleBtn = document.getElementById('theme-toggle');
-
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-
-    // Switch icon
-    if (document.body.classList.contains('dark')) {
-        toggleBtn.classList.remove('fa-moon');
-        toggleBtn.classList.add('fa-sun');
-    } else {
-        toggleBtn.classList.remove('fa-sun');
-        toggleBtn.classList.add('fa-moon');
-    }
-});
-
-// MENU OPTION
-const menuBtn = document.querySelector('.menu-btn');
-const menuOption = document.querySelector('.menu-option');
-
-menuBtn.addEventListener('click', () => {
-  menuOption.classList.toggle('open');
-  menuBtn.classList.toggle('active');
-});
-
-
 // ----
 // MAIN
 // ----

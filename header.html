@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Section</title>
+    <style>
+        :root {
+            font-size: 16px;
+            font-style: normal;
+            font-family: "DM Mono", monospace;
+            --bg: #FFFFFF;
+            --fg: #202020;
+            --accent: #FFCC2A;
+            --border: #5A5050;
+        }
+
+        body {
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100Vh;
+            width: 100vw;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+            color: var(--fg);
+            background-color: var(--bg);
+        }
+
+        body.dark {
+            color: var(--bg);
+            background-color: var(--fg);
+        }
+
+        /* FONT ELEMENT */
+        h2 {
+            font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+            font-weight: bold;
+            color: var(--border);
+        }
+
+        p {
+            font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+            color: var(--fg);
+        }
+
+        body.dark p {
+            color: var(--bg);
+        }
+
+        header {
+            width: 100%;
+            height: auto;
+            padding: 0.5rem;
+            display: flex;
+        }
+
+        /* LEFT SIDE */
+        .header-left {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .header-left img {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .header-left p {
+            font-weight: bold;
+            color: var(--border);
+        }
+
+        body.dark .header-left p {
+            color: var(--bg);
+        }
+
+        .sername {
+            color: var(--accent);
+        }
+
+
+        .header-right {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .theme-btn {
+            cursor: pointer;
+            border-radius: 0.5rem;
+            padding: 0.4rem;
+            margin-right: 0.5rem;
+            transition: color 0.3s ease, background 0.3s ease;
+            color: var(--fg);
+        }
+
+        body.dark .theme-btn {
+            color: var(--accent);
+        }
+
+        /* Menu button */
+        .menu-btn {
+            cursor: pointer;
+        }
+
+        /* Menu Option */
+        .menu-option {
+            width: 100%;
+            height: auto;
+            display: none;
+            position: relative;
+            top: 3rem;
+            left: 0;
+            padding: 1rem 0;
+            background-color: var(--border);
+            z-index: 1000;
+        }
+
+        .menu-option.open {
+            display: block;
+        }
+
+        .menu-option ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .menu-option li {
+            margin: 1rem 0;
+        }
+
+        .menu-option li a {
+            text-decoration: none;
+            color: var(--bg);
+        }
+
+        .menu-option li a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img class="logo" src="assets/logo.png" alt="Logo">
+            <p>Sohel<span class="sername">Chaus</span></p>
+        </div>
+
+        <div class="header-right">
+            <i id="theme-toggle" class="fa-solid fa-moon theme-btn"></i>
+
+            <!-- Menu Button -->
+            <i class="fa-solid fa-bars menu-btn"></i>
+
+            <!-- Menu Option -->
+            <div class="menu-option">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Service</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // THEME BUTTON
+        const toggleBtn = document.getElementById('theme-toggle');
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+
+            // Switch icon
+            if (document.body.classList.contains('dark')) {
+                toggleBtn.classList.remove('fa-moon');
+                toggleBtn.classList.add('fa-sun');
+            } else {
+                toggleBtn.classList.remove('fa-sun');
+                toggleBtn.classList.add('fa-moon');
+            }
+        });
+
+        // MENU OPTION
+        const menuBtn = document.querySelector('.menu-btn');
+        const menuOption = document.querySelector('.menu-option');
+
+        menuBtn.addEventListener('click', () => {
+            menuOption.classList.toggle('open');
+            menuBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
