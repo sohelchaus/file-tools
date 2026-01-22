@@ -33,6 +33,14 @@
 
 }
 
+/* ------ */
+/* PDF UI */
+/* ------ */
+.steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 /* ----------- */
 /* TABLET VIEW */
