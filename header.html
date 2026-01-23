@@ -34,7 +34,8 @@
         }
 
         /* FONT ELEMENT */
-        h2, i {
+        h2,
+        i {
             font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
             font-weight: bold;
             color: var(--border);
@@ -108,38 +109,63 @@
         /* Menu button */
         .menu-btn {
             cursor: pointer;
+            color: var(--fg);
+            z-index: 1100;
         }
-
-        /* Menu Option */
+        
+        body.dark .menu-btn {
+            color: var(--bg);
+        }
+        
         .menu-option {
-            width: 100%;
+            width: calc(100% - 2rem);
             height: auto;
-            display: none;
-            position: relative;
-            top: 3rem;
+            position: fixed;
+            top: 0;
             left: 0;
-            padding: 1rem 0;
-            background-color: var(--border);
+            margin: 1rem;
+            padding-top: 1rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border-radius: var(--radius);
+            border: 2px solid var(--border);
+            color: var(--border);
+            background-color: var(--bg);
             z-index: 1000;
+        }
+        
+        body.dark .menu-option {
+            border: 2px solid var(--bg);
+            background-color: var(--fg);
         }
 
         .menu-option.open {
-            display: block;
+            display: flex;
         }
 
         .menu-option ul {
+            width: 100%;
             margin: 0;
             padding: 0;
             list-style: none;
             text-align: center;
         }
-
+        
         .menu-option li {
             margin: 1rem 0;
         }
-
+        
         .menu-option li a {
             text-decoration: none;
+            color: var(--border);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .menu-option li a {
             color: var(--bg);
         }
 
@@ -159,11 +185,12 @@
         <div class="header-right">
             <i id="theme-toggle" class="fa-solid fa-moon theme-btn"></i>
 
-            <!-- Menu Button -->
-            <i class="fa-solid fa-bars menu-btn"></i>
+            <!-- Menu Toggle -->
+            <i class="fa-solid fa-bars menu-btn" id="menuBtn"></i>
 
             <!-- Menu Option -->
-            <div class="menu-option">
+            <div class="menu-option" id="menuOption">
+
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -171,6 +198,7 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
+
         </div>
     </header>
 
@@ -192,13 +220,31 @@
         });
 
         // MENU OPTION
-        const menuBtn = document.querySelector('.menu-btn');
-        const menuOption = document.querySelector('.menu-option');
+        const menuBtn = document.getElementById("menuBtn");
+        const menuOption = document.getElementById("menuOption");
 
-        menuBtn.addEventListener('click', () => {
-            menuOption.classList.toggle('open');
-            menuBtn.classList.toggle('active');
+        menuBtn.addEventListener("click", () => {
+            menuOption.classList.toggle("open"); // toggle menu visibility
         });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (
+                menuOption.classList.contains("open") &&
+                !menuOption.contains(e.target) &&
+                e.target !== menuBtn
+            ) {
+                menuOption.classList.remove("open");
+            }
+        });
+
+        // Optional: close menu when clicking a link
+        menuOption.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                menuOption.classList.remove("open");
+            });
+        });
+
     </script>
 </body>
 
