@@ -40,7 +40,7 @@ h2 {
 }
 
 p {
-    font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+    font-size: clamp(0.8rem, 0.5rem + 1vw, 1.25rem);
     color: var(--fg);
 }
 
@@ -224,13 +224,7 @@ body.dark .tab-bar {
     padding: 0.8rem;
     cursor: pointer;
     border-radius: 0.4rem;
-    font-weight: 500;
     transition: background 0.3s;
-}
-
-.tab:hover {
-    color: var(--fg);
-    background-color: var(--bg);
 }
 
 .tab.active {
