@@ -9,9 +9,10 @@
     font-size: 16px;
     font-style: normal;
     font-family: "DM Mono", monospace;
-    --bg: #FFFFFF;
-    --fg: #202020;
-    --accent: #FFCC2A;
+    --radius: 0.5rem;
+    --bg-color: #FFFFFF;
+    --fg-color: #202020;
+    --accent-color: #FFCC2A;
     --border: #5A5050;
 }
 
@@ -23,13 +24,13 @@ body {
     width: 100vw;
     margin: 0 auto;
     padding: 0.5rem 1rem;
-    color: var(--fg);
-    background-color: var(--bg);
+    color: var(--fg-color);
+    background-color: var(--bg-color);
 }
 
 body.dark {
-    color: var(--bg);
-    background-color: var(--fg);
+    color: var(--bg-color);
+    background-color: var(--fg-color);
 }
 
 /* FONT ELEMENT */
@@ -41,11 +42,11 @@ h2 {
 
 p {
     font-size: clamp(0.8rem, 0.5rem + 1vw, 1.25rem);
-    color: var(--fg);
+    color: var(--fg-color);
 }
 
 body.dark p {
-    color: var(--bg);
+    color: var(--bg-color);
 }
 
 /* ---- */
@@ -71,7 +72,7 @@ main p {
     display: inline-block;
     text-align: center;
     border-radius: 0.4rem;
-    color: var(--bg);
+    color: var(--bg-color);
     background-color: var(--border);
 }
 
@@ -119,80 +120,47 @@ main p {
 .carousel {
     width: 100%;
     height: auto;
-    padding: 0 1rem;
-    overflow: hidden;
-    box-sizing: border-box;
+    margin-bottom: 2rem;
 }
 
-.carousel-track {
+.swiper {
+    width: 100%;
+    margin: auto;
+}
+
+.swiper-slide {
     display: flex;
-    gap: 1rem;
-    will-change: transform;
-    transition: transform 0.5s ease;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
 }
 
-.carousel-card {
-    flex: 0 0 80%;
+.slide-top {
+    width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
-    backdrop-filter: blur(12px);
-    transition: opacity 0.4s ease;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin-bottom: 2rem;
 }
 
-body.dark .carousel-card {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: rgba(0, 0, 0, 0.35);
-}
-
-/* Info section */
-.card-title {
-    padding-bottom: 0.5rem;
-    color: var(--fg);
+.slide-title {
     font-weight: bold;
 }
 
-.card-desc {
-    line-height: 1.4;
-    color: var(--fg);
-}
-
-body.dark .card-title,
-body.dark .card-desc {
-    color: var(--bg);
-}
-
-/* Footer row */
-.card-footer {
+.slide-bottom {
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
 }
 
-.card-icon i {
-    padding: 0.6rem;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    background-color: var(--bg);
+/* SWIPER BUTTON */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--accent-color);
 }
 
-body.dark .card-icon i {
-    background-color: var(--fg);
-}
-
-.card-link a {
-    display: inline-block;
-    padding: 0.5rem;
-    border-radius: 50%;
-    text-decoration: none;
-    color: var(--border);
-}
 
 /* TOOL SECTION */
 .tab-bar {
@@ -204,7 +172,7 @@ body.dark .card-icon i {
     gap: 0.5rem;
     margin: 0;
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
@@ -228,7 +196,7 @@ body.dark .tab-bar {
 }
 
 .tab.active {
-    color: var(--bg);
+    color: var(--bg-color);
     background-color: var(--border);
 }
 
@@ -238,7 +206,7 @@ body.dark .tab-bar {
 
 .content {
     display: none;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
 }
 
 .content.active {
@@ -265,7 +233,7 @@ body.dark .tab-bar {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     background-color: rgba(0, 0, 0, 0.2);
 }
 

@@ -2,65 +2,43 @@
 // MAIN
 // ----
 
-// CAROUSEL
-const track = document.querySelector('.carousel-track');
-const cards = Array.from(track.children);
-
-let index = 0;
-let startX = 0;
-let currentX = 0;
-let isDragging = false;
-
-const cardWidth = cards[0].getBoundingClientRect().width + 32;
-
-track.innerHTML += track.innerHTML;
-const allCards = Array.from(track.children);
-
-function updateCarousel(animate = true) {
-    track.style.transition = animate ? "transform 0.5s ease" : "none";
-    track.style.transform = `translateX(${-cardWidth * index}px)`;
-}
-
-updateCarousel(false);
-
-track.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
-    currentX = startX;
-    isDragging = true;
-    track.style.transition = "none";
+// CAROUSEL 
+document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    // Responsive breakpoints
+    breakpoints: {
+      0: {
+        slidesPerView: 1,   // mobile: 1 slide
+      },
+      768: {
+        slidesPerView: 2,   // tablet: 2 slides
+      },
+      1024: {
+        slidesPerView: 2,   // desktop: minimum 2 slides
+      },
+      1440: {
+        slidesPerView: 3,   // large desktop: 3 slides if you want
+      }
+    }
+  });
 });
 
-track.addEventListener("touchmove", e => {
-    if (!isDragging) return;
-    currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
-    track.style.transform = `translateX(${diff - cardWidth * index}px)`;
-});
 
-track.addEventListener("touchend", () => {
-    if (!isDragging) return;
-    const diff = currentX - startX;
-
-    if (diff > 50) index--;
-    else if (diff < -50) index++;
-
-    updateCarousel(true);
-
-    track.addEventListener("transitionend", () => {
-        if (index < 0) {
-            index = cards.length - 1;
-            updateCarousel(false);
-        }
-        if (index >= allCards.length / 2) {
-            index = 0;
-            updateCarousel(false);
-        }
-    }, { once: true });
-
-    isDragging = false;
-});
-
-// NAVIGATION BUTTON
+// TAB BAR
 const tabs = document.querySelectorAll(".tab");
 const contents = document.querySelectorAll(".content");
 

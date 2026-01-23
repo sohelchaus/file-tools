@@ -14,15 +14,18 @@
         rel="stylesheet">
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/ec2b7aebf5.js" crossorigin="anonymous"></script>
-    <!-- jQuery -->
+    <!-- JQUERY - PlaceHolder -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JQUERY - Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body>
     <header id="header-section"></header>
-    
+
     <main>
         <!-- Animated Tagline -->
         <h2 class="word-animation">
@@ -34,49 +37,57 @@
         <p>I offer services such as website development, UI/UX design and graphic design.</p><br>
 
         <!-- INTRO SECTION -->
+
         <section class="carousel">
-            <div class="carousel-track">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
 
-                <!-- Card 1 -->
-                <div class="carousel-card">
-                    <div class="card-info">
-                        <p class="card-title">PDF Tool</p>
-                        <p class="card-desc">Solve Your PDF Problems.</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="card-icon"><i class="fa-regular fa-file-pdf" style="color: #FF0000;"></i></div>
-                        <div class="card-link"><a href="pdf-tool.html"><i class="fa-solid fa-arrow-right"></i></a></div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="carousel-card active">
-                    <div class="card-info">
-                        <p class="card-title">Image Tools</p>
-                        <p class="card-desc">Edit and Optimize Images.</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="card-icon"><i class="fa-regular fa-image" style="color: #2B579A;"></i></div>
-                        <div class="card-link"><a href="image-tool.html"><i class="fa-solid fa-arrow-right"></i></a>
+                    <!-- slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="slide-top">
+                            <p class="slide-title">PDF Tool</p>
+                            <p class="slide-desc">Solve Your PDF Problems.</p>
+                        </div>
+                        <div class="slide-bottom">
+                            <i class="fa-regular fa-file-pdf" style="color: #FF0000;"></i>
+                            <a href="pdf-tool.html"><i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card 3 -->
-                <div class="carousel-card">
-                    <div class="card-info">
-                        <p class="card-title">Word Tools</p>
-                        <p class="card-desc">Work Smarter with Docs.</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="card-icon"><i class="fa-regular fa-file-word" style="color: #34A853;"></i></div>
-                        <div class="card-link"><a href="word-tool.html"><i class="fa-solid fa-arrow-right"></i></a>
+                    <!-- slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="slide-top">
+                            <p class="slide-title">Image Tool</p>
+                            <p class="slide-desc">Edit and Optimize Images.</p>
+                        </div>
+                        <div class="slide-bottom">
+                            <i class="fa-regular fa-image" style="color: #2B579A;"></i>
+                            <a href="image-tool.html"><i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
+
+                    <!-- slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="slide-top">
+                            <p class="slide-title">Word Tools</p>
+                            <p class="slide-desc">Work Smarter with Docs.</p>
+                        </div>
+                        <div class="slide-bottom">
+                            <i class="fa-regular fa-file-word" style="color: #34A853;"></i>
+                            <a href="word-tool.html"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
                 </div>
 
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
             </div>
-        </section><br>
+        </section>
 
         <!-- TOOL SECTION -->
         <section class="tool-section">
@@ -153,12 +164,17 @@
     <footer id="footer-section"></footer>
 
     <script src="js/script.js"></script>
+
+    <!-- JQUERY - Placeholder -->
     <script>
         $(function () {
             $("#header-section").load("header.html");
             $("#footer-section").load("footer.html");
         });
     </script>
+
+    <!-- JQUERY - Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 
