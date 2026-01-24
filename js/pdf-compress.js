@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData();
             formData.append("pdf", file);
 
-            const response = await fetch("https://yourdomain.infinityfreeapp.com/compress-pdf.php", {
+            const response = await fetch("php/pdf-compress.php", {
                 method: "POST",
                 body: formData
             });
